@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+      <link rel="stylesheet" type="text/css" href="todo.css">
+    <title></title>
+    <script type="text/javascript">
+      function AddToDo() {
+        var item = document.getElementById('item').value;
+        var orderList = document.getElementById('orderList');
+        var newList = document.createElement('li');
+        var check = document.createElement('input');
+        check.type= "checkbox";
+        newList.innerHTML= item;
+        newList.appendChild(check);
+        orderList.appendChild(newList);
+      }
+
+      function TestCheck() {
+      
+      }
+
+    </script>
+  </head>
+  <body>
+<h1>TO DO LIST</h1>
+<table>
+  <tr colspan = "2">
+
+    <input type="text" name="" value="" id="item">
+    <input type="button" name="" value="Add" onclick="AddToDo()">
+  </tr>
+  <tr>
+    <th>To Do:</th>
+    <th>Done: </th>
+    <td></td>
+    <td></td>
+
+  </tr>
+  <tr>
+    <td>
+    <ol id="orderList">
+
+
+    <li onclick="TestCheck()"> <label for = "check">Pork <input type="checkbox" class="check" name="" value="" id="check"></li>
+    <li onclick="TestCheck()"><label for = "chicken"> Chicken<input type="checkbox" class="check" name="" value="" id="chicken"></li>
+    <li onclick="TestCheck()"><label for="milk"> Milk<input type="checkbox" name="" class="check" value="" id="milk"></li>
+    <li onclick="TestCheck()"><label for="cheese"> Cheese<input type="checkbox" name="" class="check" value="" id="cheese"></li>
+    <li onclick="TestCheck()"><label for="spinach"> Spinach<input type="checkbox" name="" class="check" value="" id="spinach"></li>
+
+    </ol>
+    </td>
+  </tr>
+</table>
+  </body>
+</html>

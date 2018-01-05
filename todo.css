@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+}
+
+body {
+  background-color: lightgrey;
+  font-size: 24px;
+
+}
+
+th {
+  text-align: left;
+}
+
+.check:checked {
+   text-decoration: line-through;
+}
+
+td, th {
+  width: 50%;
+}
