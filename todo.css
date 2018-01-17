@@ -1,21 +1,103 @@
-table {
-  width: 100%;
-}
+
 
 body {
   background-color: lightgrey;
   font-size: 24px;
+  font-family: sans-serif;
+  color:  #994d00;
+}
+
+#ToAdd {
+  background: linear-gradient(to bottom right, white, lightgrey);
+}
+
+#Added {
+  background: linear-gradient(to bottom right, white, lightgrey);
+}
+
+#item, #quantity {
+  height: 25px;
+  width: 200px;
+}
+
+#Add {
+  width: 125px;
+  height: 30px;
+  background-color: #994d00;
+  color: white;
+  font-size: 16px;
+  box-shadow: 2px 2px grey;
+}
+
+header {
+  background-color: white;
+}
+
+.logo {
+  height: 100px;
+  width: 300px;
+}
+
+
+li {
+  display: inline-block;
 
 }
 
-th {
-  text-align: left;
+li.heading {
+  margin-left: 100px;
 }
 
-.check:checked {
-   text-decoration: line-through;
+li.item {
+
+  margin-left: 20px;
+  width: 100px;
 }
 
-td, th {
-  width: 50%;
+li.items {
+
+  margin-left: 20px;
+  width: 100px;
+}
+
+li.quantity {
+  width: 100px;
+  margin-left: 80px;
+
+}
+
+li.quantities {
+  width: 100px;
+  margin-left: 80px;
+}
+
+li.del {
+  padding-left: 50px;
+
+}
+
+li.dels {
+  padding-left: 50px;
+
+}
+
+img {
+  height: 30px;
+  width: 25px;
+}
+
+ul.sub {
+  margin-top: 2px;
+  background-color: #86b300;
+  display: flex;
+  color: #994d00;
+}
+
+ul.sub:hover {
+  box-shadow: 2px 2px grey;
+  background-color: #88cc00;
+}
+
+#mainAddedUl {
+  text-decoration: line-through;
 }

@@ -2,56 +2,153 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
       <link rel="stylesheet" type="text/css" href="todo.css">
     <title></title>
     <script type="text/javascript">
+
+
+
       function AddToDo() {
-        var item = document.getElementById('item').value;
-        var orderList = document.getElementById('orderList');
-        var newList = document.createElement('li');
-        var check = document.createElement('input');
-        check.type= "checkbox";
-        newList.innerHTML= item;
-        newList.appendChild(check);
-        orderList.appendChild(newList);
+        var item = document.getElementById('item');
+        var newUl = document.createElement('ul');
+        var newUlId = item.value.toLowerCase() + 's';
+        var quantity = document.getElementById('quantity');
+        var mainUl = document.getElementById('mainUl');
+
+        //Create New List for inserting
+
+        newUl.setAttribute('class','sub');
+
+        newUl.setAttribute('id',newUlId);
+
+        //FirstList
+        var li1 = document.createElement('li');
+        var checkbox = document.createElement('input');
+        checkbox.type= "checkbox";
+        checkbox.id= item.value.toLowerCase();
+        checkbox.setAttribute("onclick", "TestCheck('" + item.value.toLowerCase() + "')");
+        li1.appendChild(checkbox);
+        newUl.appendChild(li1);
+
+        var li2 = document.createElement('li');;
+        li2.setAttribute("class","items");
+        var label = document.createElement('label');
+        label.setAttribute("for", item.value);
+        li2.innerHTML = item.value;
+        newUl.appendChild(li2);
+
+        var li3 = document.createElement('li');;
+        li3.setAttribute('class','quantities');
+        li3.innerHTML = quantity.value;
+        newUl.appendChild(li3);
+
+        var li4 = document.createElement('li');;
+        li4.setAttribute('class','dels');
+        var del = document.createElement('img');
+        del.src = 'delete.svg';
+        del.setAttribute("onclick", "DeleteRow(" + newUlId + ")");
+        li4.appendChild(del);
+        newUl.appendChild(li4);
+        mainUl.appendChild(newUl);
       }
 
-      function TestCheck() {
-      
+
+      function TestCheck(checkboxId) {
+        var checkId = document.getElementById(checkboxId);
+        var ulId = checkboxId + 's';
+
+        var AddedUl = document.getElementById(ulId);
+
+        var mainAddedUl = document.getElementById("mainAddedUl");
+        var mainUl = document.getElementById("mainUl");
+
+        if (checkId.checked == true) {
+
+          mainAddedUl.appendChild(AddedUl);
+        }
+
+        else {
+          mainUl.appendChild(AddedUl);
+        }
+
       }
 
+      function DeleteRow(row) {
+        row.parentNode.removeChild(row);
+
+      }
     </script>
   </head>
   <body>
-<h1>TO DO LIST</h1>
-<table>
-  <tr colspan = "2">
+    <header>
+      <img src="logo.png" class="logo"/>
+      </header>
 
-    <input type="text" name="" value="" id="item">
-    <input type="button" name="" value="Add" onclick="AddToDo()">
-  </tr>
-  <tr>
-    <th>To Do:</th>
-    <th>Done: </th>
-    <td></td>
-    <td></td>
+  <table>
+    <tr>
 
-  </tr>
-  <tr>
-    <td>
-    <ol id="orderList">
+      <th>Item</th>
+      <th>Quantity</th>
+    </tr>
+    <tr>
+
+      <td><input type="text" name="" value="" id="item"></td>
+      <td><input type="text" name="" value="" id="quantity"></td>
+      <td><input type="button" name="" value="Add" id="Add" onclick="AddToDo()"></td>
+    </tr>
+  </table>
 
 
-    <li onclick="TestCheck()"> <label for = "check">Pork <input type="checkbox" class="check" name="" value="" id="check"></li>
-    <li onclick="TestCheck()"><label for = "chicken"> Chicken<input type="checkbox" class="check" name="" value="" id="chicken"></li>
-    <li onclick="TestCheck()"><label for="milk"> Milk<input type="checkbox" name="" class="check" value="" id="milk"></li>
-    <li onclick="TestCheck()"><label for="cheese"> Cheese<input type="checkbox" name="" class="check" value="" id="cheese"></li>
-    <li onclick="TestCheck()"><label for="spinach"> Spinach<input type="checkbox" name="" class="check" value="" id="spinach"></li>
+    <div id="ToAdd">
+    <h2>Add To Cart:</h2>
+    <ul id= "mainUl">
 
-    </ol>
-    </td>
-  </tr>
-</table>
+      <li class = "heading"><strong>Item</li>
+      <li class = "heading">Quantity</strong></li>
+
+      <ul class="sub" id="chickens">
+        <li><input type="checkbox" class="check" name="" value="" id="chicken" onclick="TestCheck('chicken')"></li>
+        <li class= "item"><label for = "chicken">Chicken</li>
+        <li class= "quantity">2kg</li>
+        <li class="del"><img src="delete.svg" onclick = "DeleteRow(chickens)" ></li>
+      </ul>
+      <ul class="sub" id="porks">
+        <li><input type="checkbox" class="check" name="" value="" id="pork" onclick="TestCheck('pork')"></li>
+        <li class= "item"><label for = "pork">Pork</li>
+        <li class= "quantity">1kg</li>
+        <li class="del"><img src="delete.svg" onclick = "DeleteRow(porks)"></li>
+      </ul>
+      <ul class="sub" id="milks">
+        <li><input type="checkbox" class="check" name="" value="" id="milk" onclick="TestCheck('milk')"></li>
+        <li class= "item"><label for = "milk">Milk</li>
+        <li class= "quantity">1l</li>
+        <li class="del"><img src="delete.svg" onclick = "DeleteRow(milks)"></li>
+      </ul>
+      <ul class="sub" id="cheeses">
+        <li><input type="checkbox" class="check" name="" value="" id="cheese" onclick="TestCheck('cheese')"></li>
+        <li class= "item"><label for = "cheese">Cheese</li>
+        <li class= "quantity">500g</li>
+        <li class="del"><img src="delete.svg" onclick = "DeleteRow(cheeses)"></li>
+      </ul>
+      <ul class="sub" id="spinachs">
+        <li><input type="checkbox" class="check" name="" value="" id="spinach" onclick="TestCheck('spinach')"></li>
+        <li class= "item"><label for = "spinach">Spinach</li>
+        <li class= "quantity">2kg</li>
+        <li class="del"><img src="delete.svg" onclick = "DeleteRow(spinachs)"></li>
+      </ul>
+    </ul>
+  </div>
+  <div id="Added">
+    <h2>Added:</h2>
+    <ul id="mainAddedUl">
+      <li class = "heading">
+        <strong>Item</strong>
+      </li><li class = "heading">
+        <strong>Quantity</strong>
+      </li>
+    </ul>
+  </div>
   </body>
 </html>
