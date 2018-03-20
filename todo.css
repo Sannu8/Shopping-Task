@@ -5,24 +5,31 @@ body {
   font-size: 24px;
   font-family: sans-serif;
   color:  #994d00;
+  
 }
 
 #ToAdd {
   background: linear-gradient(to bottom right, white, lightgrey);
+  margin-right: 10%;
+  margin-left: 10%;
+  
 }
 
 #Added {
   background: linear-gradient(to bottom right, white, lightgrey);
+  margin-right: 10%;
+  margin-left: 10%;
+  
 }
 
 #item, #quantity {
-  height: 25px;
+  height: 3vh;
   width: 200px;
 }
 
 #Add {
   width: 125px;
-  height: 30px;
+  height: 4vh;
   background-color: #994d00;
   color: white;
   font-size: 16px;
@@ -91,6 +98,7 @@ ul.sub {
   background-color: #86b300;
   display: flex;
   color: #994d00;
+ 
 }
 
 ul.sub:hover {
@@ -100,4 +108,98 @@ ul.sub:hover {
 
 #mainAddedUl {
   text-decoration: line-through;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
+
+#mainUl {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+table {
+  margin-left:30%;
+}
+
+header{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+@media only screen and (max-width: 500px) {
+  #item, #quantity {
+    width: 120px;
+  }
+  li.heading {
+    margin-left: 45px;
+  }
+  
+  li.item {
+  
+    margin-left: 10px;
+    width: 50px;
+  }
+  
+  li.items {
+  
+    margin-left: 10px;
+    width: 50px;
+  }
+  
+  li.quantity {
+    width: 50px;
+    margin-left: 80px;
+  
+  }
+  
+  li.quantities {
+    width: 50px;
+    margin-left: 40px;
+  }
+  
+  li.del {
+    padding-left: 50px;
+  
+  }
+  
+  li.dels {
+    padding-left: 50px;
+  
+  }
+  
+  ul.sub {
+    padding-left: 10px;
+  }
+
+  #ToAdd {
+    
+    margin-right: 0%;
+    margin-left: 0%;
+  }
+  
+  #Added {
+   
+    margin-right: 0%;
+    margin-left: 0%;
+  }
+  table {
+    margin-left:0%;
+  }
+  
+  header{
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+}
+
+
+@media only screen and (min-width: 500px) and (max-width: 900px) {
+  table {
+    margin-left: 12vw;
+  }
+  #item, #quantity {
+    width: 120px;
+  }
+} 
